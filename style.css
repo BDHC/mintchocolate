@@ -15,10 +15,12 @@ h1{
 .title-one{
 	font-family: 'Jua', sans-serif;
 	color: #0B3B39;
+	display: inline-block;
 }
 .title-two{
-	font-family: 'Gugi', cursive;
+	font-family: 'Jua', sans-serif;
 	color:#2A1B0A;
+	display: inline-block;
 }
 h2{
 	font-family: 'Jua', sans-serif;
