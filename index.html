@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Bootstrap CSS -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Gugi&family=Jua&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<script
+			type="text/javascript"
+			src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ff7d9775374dcb1"
+		></script>
+
+		<title>Mintchoco</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light nav-distance nav-color">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Mint Chocolate!</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Features</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Pricing</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
+								>Disabled</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<section class="section">
+			<h1 class="title-one">
+				민트
+			</h1>
+			<h1 class="title-two">
+				초코
+			</h1>
+			<h2>
+				반민초파 vs 민초파!
+			</h2>
+			<h2>
+				극강의 호불호! 
+			</h2>
+			<h2>
+				과연 당신은 진정으로 민초를 싫어할까요?
+			</h2>
+			<h2>
+				과연 당신은 진정으로 민초를 좋아할까요?
+			</h2>
+		</section>
+
+		<!--Codepen.io -->
+
+		<script
+			class="jsbin"
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+		></script>
+		<div class="container file-upload">
+			<div class="image-upload-wrap">
+				<input
+					class="file-upload-input"
+					type="file"
+					onchange="readURL(this);"
+					accept="image/*"
+				/>
+				<div class="drag-text">
+					<h3>얼굴 사진을 업로드해주세요!</h3>
+				</div>
+			</div>
+			<div class="file-upload-content">
+				<img class="file-upload-image" id="face-image" src="#" alt="your image" />
+
+				<div id="loading" class="animated bounce">
+					<div class="spinner-border" role="status">
+						<span class="sr-only"></span>
+					</div>
+					<p class="text-center">Loading....</p>
+				</div>
+				<p class="result-message"></p>
+				<p class="result-messages"></p>
+				<div id="label-container" class="barcontainer"></div>
+				<div id="addThis" class="addthis_inline_share_toolbox_6lz1"></div>
+
+				<div class="pt-3 image-title-wrap">
+					<button
+						type="button p-2"
+						class="try-again-btn"
+						onclick="window.location.reload();"
+					>
+						<span class="try-again-text">다른 사진으로 재시도</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+					reader.onload = function (e) {
+						$('.image-upload-wrap').hide();
+						$('#loading').show();
+						$('.file-upload-image').attr('src', e.target.result);
+						$('.file-upload-content').show();
+						$('.image-title').html(input.files[0].name);
+					};
+					reader.readAsDataURL(input.files[0]);
+					init().then(() => {
+						console.log('hello');
+						predict();
+						$('#loading').hide();
+					});
+				} else {
+					removeUpload();
+				}
+			}
+			function removeUpload() {
+				$('.file-upload-input').replaceWith($('.file-upload-input').clone());
+				$('.file-upload-content').hide();
+				$('.image-upload-wrap').show();
+			}
+			$('.image-upload-wrap').bind('dragover', function () {
+				$('.image-upload-wrap').addClass('image-dropping');
+			});
+			$('.image-upload-wrap').bind('dragleave', function () {
+				$('.image-upload-wrap').removeClass('image-dropping');
+			});
+		</script>
+		<!--Codepen.io end -->
+
+		<!--Comment start -->
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+
+		<div id="disqus_thread"></div>
+		<script>
+			(function () {
+				// DON'T EDIT BELOW THIS LINE
+				var d = document,
+					s = d.createElement('script');
+				s.src = 'https://recoder.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+			})();
+		</script>
+		<noscript
+			>Please enable JavaScript to view the
+			<a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<!--Comment end -->
+
+		<!--Teachable mechine start-->
+		<!--<div>Teachable Machine Image Model</div> is located top -->
+		<div id="webcam-container"></div>
+		<div id="label-container"></div>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+		<script type="text/javascript">
+			const URL = 'https://teachablemachine.withgoogle.com/models/b8HqrN_Ki/';
+			let model, webcam, labelContainer, maxPredictions;
+			async function init() {
+				const modelURL = URL + 'model.json';
+				const metadataURL = URL + 'metadata.json';
+				model = await tmImage.load(modelURL, metadataURL);
+				maxPredictions = model.getTotalClasses();
+				labelContainer = document.getElementById('label-container');
+				for (let i = 0; i < maxPredictions; i++) {
+					labelContainer.appendChild(document.createElement('div'));
+				}
+			}
+			async function predict() {
+				var image = document.getElementById('face-image');
+				const prediction = await model.predict(image, false);
+				prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+				console.log(prediction[0].className);
+				var resultMessage;
+				var resulttitle;
+				var pred;
+				pred = Math.floor(prediction[0].probability * 10);
+				switch (prediction[0].className) {
+					case 'mintchoco':
+						resulttitle = '민초파!';
+						if (pred == 9) {
+							resultMessage = '민트초코에 진심이시군요. 진정한 민초의 힘! 난세의 영웅이십니다!';
+						} else if (pred == 8) {
+							resultMessage = '민트초코는 사랑입니다. 앞으로도 그마음 변함없으셔야 합니다! 믿습니다!';
+						} else if (pred == 7) {
+							resultMessage = '초코맛 나는 민트, 민트맛 나는 초코, 초코속의 민트, 입안가득 상쾌함!';
+						} else if (pred == 6) {
+							resultMessage = '믿음이 부족하시군요...오늘은 민트초코 하셨나요?';
+						} else if (pred == 5) {
+							resultMessage = '반반이 나올리가 없는데... 마치 부먹과 찍먹의 공존같군요!';
+						}
+						break;
+					case 'antimint':
+						resulttitle = '반민초파!';
+						if (pred == 9) {
+							resultMessage = '진정한 미식가는 치약과 음식정도는 구별할수 있습니다.';
+						} else if (pred == 8) {
+							resultMessage = '양치하고 초콜릿을 먹나, 초콜릿을 먹고 양치를 하나, 민트초코를 먹나, 역겨운건 마찬가지...';
+						} else if (pred == 7) {
+							resultMessage = '음..인생에 한 두번은 드셨을꺼 같네요. 좀 더 싫어하셔야겠어요. 까딱하단 좋아하실수도 있어요...';
+						} else if (pred == 6) {
+							resultMessage = '아직 혐오가 부족하시군요! 사실 민트초코 좋아하는데 주변의 시선에 못이겨 싫어하시는거 아닌가요?';
+						} else if (pred == 5) {
+							resultMessage = '반반이 나올리가 없는데... 마치 부먹과 찍먹의 공존같군요!';
+						}
+						break;
+					default:
+						resultMessage = '외계인! 외계인이에요! 이거 뜨면 오류인데.. 만약 얼굴 사진을 사용하여 이글을 읽으신다면 외계인이 분명해요!';
+				}
+				$('.result-message').html(resulttitle);
+				$('.result-messages').html(resultMessage);
+				var barWidth;
+				for (let i = 0; i < maxPredictions; i++) {
+					if (prediction[i].probability.toFixed(2) > 0.1) {
+						barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + '%';
+					} else if (prediction[i].probability.toFixed(2) >= 0.01) {
+						barWidth = '4%';
+					} else {
+						barWidth = '2%';
+					}
+					var labelTitle;
+					switch (prediction[i].className) {
+						case 'mintchoco':
+							labelTitle = '민초파';
+							break;
+						case 'antimint':
+							labelTitle = '반민초파';
+							break;
+						default:
+							labelTitle = '외계인이 나타났다!';
+					}
+					var label = "<div class='mint-label d-flex align-items-center'>" + labelTitle + '</div>';
+					var bar = "<div class='bar-container position-relative container'><div class='" + prediction[i].className + "-box'></div><div class='d-flex justify-content-center align-items-center " + prediction[i].className + "-bar' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + '%</span></div></div>';
+					labelContainer.childNodes[i].innerHTML = label + bar;
+				}
+			}
+		</script>
+		<!--Teachable machine end -->
+	</body>
+
+	<!-- Copyright (c) 2021 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+</html>
