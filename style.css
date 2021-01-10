@@ -230,6 +230,10 @@ h2{
   border-radius: 10px;
   background-color: rgba(117, 204, 84, 1);
 }
+.amazon-ad{
+	margin: auto;
+	text-align: center;
+}
 @media screen and (max-width: 600px) {
   html {
     font-size: 10px;
